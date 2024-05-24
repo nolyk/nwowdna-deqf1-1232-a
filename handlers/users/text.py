@@ -66,25 +66,27 @@ async def profile_handler_call(call: CallbackQuery):
             username=call.from_user.username
         )
     await call.answer('')
-    await call.message.answer_photo(
-        photo='https://imgur.com/ohG9xyX',
-        caption=cabinet_msg.format(
-            user_id=call.from_user.id,
-            data=str(user.date)[:10],
-            deals=await Deals.getCountUserDeals(
+    await call.message.edit_media(
+        InputMediaPhoto(
+            media=('https://telegra.ph/file/a0324f8b445c4b724dfcf.png'),
+            caption=cabinet_msg.format(
                 user_id=call.from_user.id,
-                status="ALL"
-            ),
-            success=await Deals.getCountUserDeals(
-                user_id=call.from_user.id,
-                status="Закрыта"
-            ),
-            canceled=await Deals.getCountUserDeals(
-                user_id=call.from_user.id,
-                status="Отменена"
-            ),
-            rating=user.rating,
-            balance=user.balance
-        ),
+                data=str(user.date)[:10],
+                deals=await Deals.getCountUserDeals(
+                    user_id=call.from_user.id,
+                    status="ALL"
+                ),
+                success=await Deals.getCountUserDeals(
+                    user_id=call.from_user.id,
+                    status="Закрыта"
+                ),
+                canceled=await Deals.getCountUserDeals(
+                    user_id=call.from_user.id,
+                    status="Отменена"
+                ),
+                rating=user.rating,
+                balance=user.balance
+            )),
         reply_markup=cabinet_markup()
     )
+
