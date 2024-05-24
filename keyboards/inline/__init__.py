@@ -1,0 +1,32 @@
+from .user_markup import (
+    cabinet_markup,
+    payment_markup,
+    garant_markup,
+    blacklist_markup,
+    return_black_markup,
+    information_markup,
+    partners_markup,
+    deals_markup,
+    accept_deal_markup,
+    pay_deal_markup,
+    conditions_deal_markup,
+    finish_deal_markup,
+    finish_seller_markup,
+    arbitrator_markup,
+    rating_markup,
+    return_markup,
+    view_markup,
+    open_deal_markup,
+    info_deal_markup,
+    withdrawal_markup
+)
+from .admin_markup import (
+    search_markup,
+    adm_arb_markup,
+    mailing_markup,
+    del_channel_markup,
+    del_withdrawal_markup,
+    black_confirm_markup,
+    admin_delblack_markup,
+    admin_return_deal_markup
+)
