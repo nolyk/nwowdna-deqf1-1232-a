@@ -56,3 +56,34 @@ async def profile_handler(msg: Message):
         ),
         reply_markup=cabinet_markup()
     )
+
+@vip.callback_query_handler(IsPrivate(), IsBan(), text="user-profile")
+async def profile_handler_call(call: CallbackQuery):
+    user = await Users().get(user_id=call.from_user.id)
+    if user.username != call.from_user.username:
+        await Users().updateUsername(
+            user_id=call.from_user.id,
+            username=call.from_user.username
+        )
+    await msg.answer_photo(
+        photo='https://imgur.com/ohG9xyX',
+        caption=cabinet_msg.format(
+            user_id=call.from_user.id,
+            data=str(user.date)[:10],
+            deals=await Deals.getCountUserDeals(
+                user_id=call.from_user.id,
+                status="ALL"
+            ),
+            success=await Deals.getCountUserDeals(
+                user_id=call.from_user.id,
+                status="Закрыта"
+            ),
+            canceled=await Deals.getCountUserDeals(
+                user_id=call.from_user.id,
+                status="Отменена"
+            ),
+            rating=user.rating,
+            balance=user.balance
+        ),
+        reply_markup=cabinet_markup()
+    )

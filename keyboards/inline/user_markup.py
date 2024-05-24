@@ -6,15 +6,18 @@ def garant_markup():
 	markup = InlineKeyboardMarkup(
 		inline_keyboard=[
 			[
-				InlineKeyboardButton(text='🤝 Провести сделку', callback_data='user-search-deal'),
+				InlineKeyboardButton(text='🤝 Провести сделку 🛡', callback_data='user-search-deal'),
 			],
 			[
 				InlineKeyboardButton(text='📑 Мои сделки', callback_data='user-deals'),
-				InlineKeyboardButton(text='🔗 Рефералка', callback_data='user-parners'),
+				InlineKeyboardButton(text='📇 Профиль', callback_data='user-profile'),
 			],
 			[
-				InlineKeyboardButton(text='📖 Информация ', callback_data='user-information'),
+				InlineKeyboardButton(text='🔗 Рефералка ', callback_data='user-parners'),
 				InlineKeyboardButton(text='🚫 Black List', callback_data='user-blacklist'),
+			],
+			[
+				InlineKeyboardButton(text='📖 Информация ℹ️', callback_data='user-information'),
 			],
 		]
 	)
