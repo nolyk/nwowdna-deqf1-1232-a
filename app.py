@@ -33,5 +33,5 @@ async def shutdown(dp: vip):
 
 
 if __name__ == '__main__':
-	logger.debug('Bot started | by VoXDoX ')
+	logger.debug('Bot started | by PySnaker ')
 	executor.start_polling(vip, on_startup=startup, on_shutdown=shutdown)

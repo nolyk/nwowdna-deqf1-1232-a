@@ -2,7 +2,7 @@ from aiogram import Bot, Dispatcher, types, executor
 from aiogram.contrib.fsm_storage.memory import MemoryStorage
 import re, asyncio
 
-bot = Bot(token='5852664821:AAGi3auEqEygCPyGvLRhWnrV_ArGAIPaMBA', parse_mode=types.ParseMode.HTML)
+bot = Bot(token='6569971744:AAGdFES-RcaZXnS4WMjUsC0TxAIGYW6Xx1I', parse_mode=types.ParseMode.HTML)
 storage = MemoryStorage()
 vip = Dispatcher(bot, storage=storage)
 
