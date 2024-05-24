@@ -1,4 +1,4 @@
-from aiogram.types import CallbackQuery
+from aiogram.types import CallbackQuery, InputMediaPhoto
 from aiogram.dispatcher import FSMContext
 
 from loader import vip, bot
@@ -105,11 +105,7 @@ async def parners_handler(call: CallbackQuery):
 
 @vip.callback_query_handler(text="user-deals")
 async def deals_handler(call: CallbackQuery):
-    await call.message.edit_caption(
-        # caption="<b>🤝 Выберите тип сделки:</b>",
-        caption="",
-        reply_markup=deals_markup()
-    )
+    await call.message.edit_media(InputMediaPhoto(media=('https://telegra.ph/file/a0324f8b445c4b724dfcf.png'), caption=''), reply_markup=deals_markup())
 
 
 @vip.callback_query_handler(text_startswith="user-deals:")
