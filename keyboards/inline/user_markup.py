@@ -62,8 +62,8 @@ def information_markup():
 	markup = InlineKeyboardMarkup(
 		inline_keyboard=[
 			[
-				InlineKeyboardButton(
-					text='💬Наш чат', url='https://t.me/+EuWgOJ54HO1hN2Ey'),
+				# InlineKeyboardButton(
+				# 	text='💬Наш чат', url='https://t.me/+EuWgOJ54HO1hN2Ey'),
 				# InlineKeyboardButton(
 				# 	text='👨🔥По рекламе', url='https://t.me/byEnzo'),
 			],

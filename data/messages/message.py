@@ -8,10 +8,9 @@ start_msg = """
 """
 
 inform_msg = """
-<b>
-ℹ️ Правила гарант сервиса <a href="https://telegra.ph/Pravila-CryptoGarantsBot-05-24">»читать«</a>
-📃 Инструкция по гарант сервису <a href="https://telegra.ph/Instrukciya-po-CryptoGarantsBot-05-24">»читать«</a>
-</b>
+<b>💬 Наш торговый чат </b><a href="https://t.me/+EuWgOJ54HO1hN2Ey"><b>»вступить«</b></a>
+<b>ℹ️ Правила гарант сервиса </b><a href="https://telegra.ph/Pravila-CryptoGarantsBot-05-24"><b>»читать«</b></a><b>
+📃 Инструкция по гарант сервису </b><a href="https://telegra.ph/Instrukciya-po-CryptoGarantsBot-05-24"><b>»читать«</b></a>
 """
 
 blacklist_msg = """
