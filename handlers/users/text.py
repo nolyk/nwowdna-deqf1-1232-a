@@ -25,7 +25,7 @@ async def default_handler(msg: Message):
     )
 
 
-@vip.message_handler(IsPrivate(), IsBan(), text=default_button[1])
+@vip.message_handler(text=default_button[1])
 async def profile_handler(msg: Message):
     user = await Users().get(user_id=msg.from_user.id)
     if user.username != msg.from_user.username:
