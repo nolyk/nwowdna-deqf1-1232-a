@@ -43,9 +43,7 @@ async def start_handler(msg: Message):
 
     else:
         await msg.answer(
-            text=start_msg.format(
-                full_name=msg.from_user.get_mention()
-            ),
+            text=start_msg,
             reply_markup=default_markup()
         )
 
@@ -72,9 +70,7 @@ async def channels_handler(call: CallbackQuery):
 
             )
             await call.message.answer(
-                text=start_msg.format(
-                    full_name=call.from_user.get_mention()
-                ),
+                text=start_msg,
                 reply_markup=default_markup()
             )
 

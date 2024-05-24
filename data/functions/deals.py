@@ -136,7 +136,7 @@ class Deals(models.Deal):
 
             markup.add(
                 InlineKeyboardButton(
-                    text="🔙 Назад", callback_data='return-menu:default')
+                    text="« Вернуться назад", callback_data='return-menu:default')
             )
 
             return markup

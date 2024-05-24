@@ -1,10 +1,13 @@
 # © copyright by VoX DoX
 from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 
+# default_button = [
+#     '🔍 Меню',
+#     '🖥 Кабинет',
+# ]
 default_button = [
-    '🔍 Меню',
-    '🖥 Кабинет',
-
+    '💻 Меню',
+    '🪪 Профиль',
 ]
 
 cancel_button = [

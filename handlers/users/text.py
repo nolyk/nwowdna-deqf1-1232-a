@@ -21,7 +21,6 @@ async def default_handler(msg: Message):
         )
     await msg.answer_photo(
         photo='https://imgur.com/ohG9xyX',
-        caption=f"<b>{msg.from_user.get_mention()}, выберите действие</b>",
         reply_markup=garant_markup()
     )
 

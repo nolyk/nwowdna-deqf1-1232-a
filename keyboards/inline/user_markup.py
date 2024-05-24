@@ -6,15 +6,15 @@ def garant_markup():
 	markup = InlineKeyboardMarkup(
 		inline_keyboard=[
 			[
-				InlineKeyboardButton(text='🔍 Найти пользователя', callback_data='user-search-deal'),
+				InlineKeyboardButton(text='🤝 Провести сделку', callback_data='user-search-deal'),
 			],
 			[
-				InlineKeyboardButton(text='🤝 Мои сделки', callback_data='user-deals'),
-				InlineKeyboardButton(text='🧬 Партнерам', callback_data='user-parners'),
+				InlineKeyboardButton(text='📑 Мои сделки', callback_data='user-deals'),
+				InlineKeyboardButton(text='🔗 Рефералка', callback_data='user-parners'),
 			],
 			[
-				InlineKeyboardButton(text='🧿 Информация', callback_data='user-information'),
-				InlineKeyboardButton(text='🦠 Блеклист', callback_data='user-blacklist'),
+				InlineKeyboardButton(text='📖 Информация ', callback_data='user-information'),
+				InlineKeyboardButton(text='🚫 Black List', callback_data='user-blacklist'),
 			],
 		]
 	)
@@ -26,15 +26,15 @@ def blacklist_markup():
 	markup = InlineKeyboardMarkup(
 		inline_keyboard=[
 			[
-				InlineKeyboardButton(text='⚔️ Внести скамера', callback_data='blacklist-write'),
+				InlineKeyboardButton(text='🚫Внести скамера', callback_data='blacklist-write'),
 			],
 			[
 				InlineKeyboardButton(text='🔎 Проверить', callback_data='blacklist-checker'),
-				InlineKeyboardButton(text='📜 Список скамеров', callback_data='blacklist-list'),
+				InlineKeyboardButton(text='📋 Список скамеров', callback_data='blacklist-list'),
 			],
 			[
 				InlineKeyboardButton(
-					text="🔙 Назад", callback_data='return-menu:default')
+					text="« Вернуться назад", callback_data='return-menu:default')
 			],
 		]
 	)
@@ -47,7 +47,7 @@ def return_black_markup():
 		inline_keyboard=[
 			[
 				InlineKeyboardButton(
-					text="🔙 Назад", callback_data='return-menu:black')
+					text="« Вернуться назад", callback_data='return-menu:black')
 			],
 		]
 	)
@@ -70,7 +70,7 @@ def information_markup():
 			],
 			[
 				InlineKeyboardButton(
-					text="🔙 Назад", callback_data='return-menu:default')
+					text="« Вернуться назад", callback_data='return-menu:default')
 			],
 		]
 	)
@@ -95,7 +95,7 @@ def partners_markup():
 			],
 			[
 				InlineKeyboardButton(
-					text="🔙 Назад", callback_data='return-menu:default')
+					text="« Вернуться назад", callback_data='return-menu:default')
 			],
 		]
 	)
@@ -107,10 +107,8 @@ def cabinet_markup():
 	markup = InlineKeyboardMarkup(
 		inline_keyboard=[
 			[
-				InlineKeyboardButton(text='💳 Пополнить', callback_data='user-payments')
-			],
-			[
-				InlineKeyboardButton(text='💸 Вывести', callback_data='user-withdrawal'),
+				InlineKeyboardButton(text='➕Пополнить', callback_data='user-payments'),
+				InlineKeyboardButton(text='⚡️Вывести', callback_data='user-withdrawal'),
 			]
 		]
 	)
@@ -122,14 +120,14 @@ def withdrawal_markup():
 	markup = InlineKeyboardMarkup(
 		inline_keyboard=[
 			[
-				InlineKeyboardButton(text='💳 Cryptobot', callback_data='user-withdrawal-crypto')
+				InlineKeyboardButton(text='🤖 CryptoBot', callback_data='user-withdrawal-crypto')
 			],
-			[
-				InlineKeyboardButton(text='💳 Карта/Qiwi/Yoomoney', callback_data='user-withdrawal-card'),
-			],
+			# [
+			# 	InlineKeyboardButton(text='💳 Карта/Qiwi/Yoomoney', callback_data='user-withdrawal-card'),
+			# ],
 			[
 				InlineKeyboardButton(
-					text="🔙 Назад", callback_data='return-menu:cabinet')
+					text="« Вернуться назад", callback_data='return-menu:cabinet')
 			],
 		]
 	)
@@ -141,11 +139,11 @@ def payment_markup():
 	markup = InlineKeyboardMarkup(
 		inline_keyboard=[
 			[
-				InlineKeyboardButton(text='💵 Cryptobot', callback_data='user-сrypto-pay'),
-				InlineKeyboardButton(text='💳 Qiwi|Card', callback_data='user-card-pay')
+				InlineKeyboardButton(text='🤖 CryptoBot', callback_data='user-сrypto-pay'),
+				InlineKeyboardButton(text='💳 PayOK', callback_data='user-card-pay')
 			],
 			[
-				InlineKeyboardButton(text='🔙 Назад', callback_data='return-menu:cabinet'),
+				InlineKeyboardButton(text='« Вернуться назад', callback_data='return-menu:cabinet'),
 			]
 		]
 	)
@@ -158,7 +156,7 @@ def return_markup():
 		inline_keyboard=[
 			[
 				InlineKeyboardButton(
-					text="🔙 Назад", callback_data='return-menu:default')
+					text="« Вернуться назад", callback_data='return-menu:default')
 			],
 		]
 	)
@@ -177,7 +175,7 @@ def deals_markup():
 			],
 			[
 				InlineKeyboardButton(
-					text="🔙 Назад", callback_data='return-menu:default')
+					text="« Вернуться назад", callback_data='return-menu:default')
 			]
 		]
 	)

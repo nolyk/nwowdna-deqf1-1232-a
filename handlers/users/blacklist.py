@@ -195,7 +195,7 @@ async def write_id_handler(msg: Message, state: FSMContext):
         data = await state.get_data()
 
         await msg.answer(
-            text="<b>Анкета скамера успешно отправлена администрации, ожидайте одобрения :)</b>",
+            text="<b>Анкета скамера успешно отправлена администрации, ожидайте рассмотрения.</b>",
             reply_markup=default_markup()
         )
         bl_id = await BlackList.writeUser(

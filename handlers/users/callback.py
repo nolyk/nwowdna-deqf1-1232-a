@@ -32,7 +32,6 @@ async def close_handler(call: CallbackQuery):
 async def return_handler(call: CallbackQuery):
     if call.data.split(":")[1] == "default":
         await call.message.edit_caption(
-            caption=f"<b>{call.from_user.get_mention()}, выберите действие</b>",
             reply_markup=garant_markup()
         )
     elif call.data.split(":")[1] == "cabinet":
@@ -107,7 +106,7 @@ async def parners_handler(call: CallbackQuery):
 @vip.callback_query_handler(text="user-deals")
 async def deals_handler(call: CallbackQuery):
     await call.message.edit_caption(
-        caption="<b>🤝 Выберите тип сделки:</b>",
+        # caption="<b>🤝 Выберите тип сделки:</b>",
         reply_markup=deals_markup()
     )
 

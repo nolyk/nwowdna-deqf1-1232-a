@@ -92,7 +92,7 @@ class PayOk:
                 ],
                 [
                     InlineKeyboardButton(
-                        text='🔙 Назад в кабинет', callback_data='return-menu:cabinet'
+                        text='« Вернуться назад', callback_data='return-menu:cabinet'
                     )
                 ]
             ]

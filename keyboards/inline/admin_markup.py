@@ -58,7 +58,7 @@ def admin_return_deal_markup():
         inline_keyboard=[
             [
                 InlineKeyboardButton(
-                    text='🔙 Назад', callback_data=f'return-active-deal')
+                    text='« Вернуться назад', callback_data=f'return-active-deal')
             ],
         ]
     )

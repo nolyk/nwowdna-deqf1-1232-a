@@ -86,7 +86,7 @@ class Cryptobot:
             )
         markup.add(
             InlineKeyboardButton(
-                text='🔙 Назад в кабинет', callback_data='return-menu:cabinet'
+                text='« Вернуться назад', callback_data='return-menu:cabinet'
             )
         )
         return markup
@@ -116,7 +116,7 @@ class Cryptobot:
                 ],
                 [
                     InlineKeyboardButton(
-                        text='🔙 Назад в кабинет', callback_data='return-menu:cabinet'
+                        text='« Вернуться назад', callback_data='return-menu:cabinet'
                     )
                 ]
             ]
