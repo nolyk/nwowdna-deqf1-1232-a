@@ -2,11 +2,9 @@
 start_msg = """
 <b>Добро пожаловать в наш гарант сервис
 
-Наша цель — это создать безопасную торговую среду для 
-продавца и покупателя в соответствии с нашими правилами. 
-<a href="https://telegra.ph/Pravila-CryptoGarantsBot-05-24">»Читать правила«</a>
+Наша цель — это создать безопасную торговую среду для продавца и покупателя в соответствии с нашими правилами</b>. <a href="https://telegra.ph/Pravila-CryptoGarantsBot-05-24">»Читать правила«</a>
 
-📃Инструкция по боту <a href="https://telegra.ph/Instrukciya-po-CryptoGarantsBot-05-24">»читать«</a></b>
+<b>📃Инструкция по боту </b><a href="https://telegra.ph/Instrukciya-po-CryptoGarantsBot-05-24">»читать«</a>
 """
 
 inform_msg = """
