@@ -103,7 +103,11 @@ def cabinet_markup():
 			[
 				InlineKeyboardButton(text='➕Пополнить', callback_data='user-payments'),
 				InlineKeyboardButton(text='⚡️Вывести', callback_data='user-withdrawal'),
-			]
+			],
+			[
+				InlineKeyboardButton(
+					text="« Вернуться назад", callback_data='return-menu:default')
+			],
 		]
 	)
 
