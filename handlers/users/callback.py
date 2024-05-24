@@ -107,6 +107,7 @@ async def parners_handler(call: CallbackQuery):
 async def deals_handler(call: CallbackQuery):
     await call.message.edit_caption(
         # caption="<b>🤝 Выберите тип сделки:</b>",
+        caption="",
         reply_markup=deals_markup()
     )
 
