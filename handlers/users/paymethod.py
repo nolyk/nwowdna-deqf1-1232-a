@@ -1,4 +1,4 @@
-from aiogram.types import CallbackQuery, Message, InputMediaPhotoInputMediaPhoto
+from aiogram.types import CallbackQuery, Message, InputMediaPhoto
 from aiogram.dispatcher import FSMContext
 
 from loader import vip, bot
