@@ -77,9 +77,13 @@ async def return_handler(call: CallbackQuery):
 
 @vip.callback_query_handler(text="user-information")
 async def inform_handler(call: CallbackQuery):
-    await call.message.edit_caption(
-        caption=inform_msg,
+    await call.message.edit_media(
+        InputMediaPhoto(
+            media=('https://telegra.ph/file/5cca1b9f425cdef886e16.png'),
+            caption=inform_msg,
+        ),
         reply_markup=information_markup()
+
     )
 
 
@@ -93,11 +97,14 @@ async def partners_bot_handler(call: CallbackQuery):
 
 @vip.callback_query_handler(text="user-parners")
 async def parners_handler(call: CallbackQuery):
-    await call.message.edit_caption(
-        caption=refferal_msg.format(
-            bot_login="EWGarantBot",
-            ref_code=call.from_user.id,
-            ref_percent=config.config("ref_percent")
+    await call.message.edit_media(
+        InputMediaPhoto(
+            media=('https://telegra.ph/file/3d4f38822820766cbedfd.png'),
+            caption=refferal_msg.format(
+                bot_login="EWGarantBot",
+                ref_code=call.from_user.id,
+                ref_percent=config.config("ref_percent")
+            ),
         ),
         reply_markup=return_markup()
     )
@@ -105,7 +112,13 @@ async def parners_handler(call: CallbackQuery):
 
 @vip.callback_query_handler(text="user-deals")
 async def deals_handler(call: CallbackQuery):
-    await call.message.edit_media(InputMediaPhoto(media=('https://telegra.ph/file/a0324f8b445c4b724dfcf.png'), caption=''), reply_markup=deals_markup())
+    """МОИ СДЕЛКИ"""
+    await call.message.edit_media(
+        InputMediaPhoto(
+            media=('https://telegra.ph/file/f9f4c6dae6c4833ef495a.png'),
+            caption=''
+        ),
+        reply_markup=deals_markup())
 
 
 @vip.callback_query_handler(text_startswith="user-deals:")

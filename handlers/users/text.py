@@ -20,7 +20,7 @@ async def default_handler(msg: Message):
             username=msg.from_user.username
         )
     await msg.answer_photo(
-        photo='https://imgur.com/ohG9xyX',
+        photo='https://telegra.ph/file/c02319db76b95f2eab4de.png',
         reply_markup=garant_markup()
     )
 
@@ -34,7 +34,7 @@ async def profile_handler(msg: Message):
             username=msg.from_user.username
         )
     await msg.answer_photo(
-        photo='https://imgur.com/ohG9xyX',
+        photo='https://telegra.ph/file/ba585ea63559091e3ac24.png',
         caption=cabinet_msg.format(
             user_id=msg.from_user.id,
             login=msg.from_user.get_mention(),

@@ -18,8 +18,11 @@ from utils import config
 
 @vip.callback_query_handler(text='user-blacklist')
 async def blacklist_handler(call: CallbackQuery):
-    await call.message.edit_caption(
-        caption=blacklist_msg,
+    await call.message.edit_media(
+        InputMediaPhoto(
+            media=('https://telegra.ph/file/5cca1b9f425cdef886e16.png'),
+            caption=blacklist_msg,
+        ),
         reply_markup=blacklist_markup()
     )
 
