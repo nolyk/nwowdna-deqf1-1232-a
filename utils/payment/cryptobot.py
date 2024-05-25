@@ -57,7 +57,7 @@ class Cryptobot:
         #
         # rub_currency = float(self.cbrf.getCurrency()) * amount
         print(data)
-        return data.invoice_id, data.pay_url, amount
+        return data.invoice_id, data.bot_invoice_url, amount
 
     async def paidInvoice(self,
                           invoice_id: int) -> bool:
