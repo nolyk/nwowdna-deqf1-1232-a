@@ -106,7 +106,7 @@ async def check_crypto_handler(call: CallbackQuery):
         )
         await call.message.edit_caption(
             caption=f"<b>♻️ Успешное пополнение баланса!\n\n"
-                    f"🧑🏻‍🔧 Тип: Сryptobot | {call.data.split(':')[3]}\n\n"
+                    f"🧑🏻‍🔧 Тип: Сryptobot\n\n"
                     f"💰 Сумма: {amount} RUB</b>",
             reply_markup=return_markup()
         )
