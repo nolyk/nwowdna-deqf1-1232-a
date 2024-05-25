@@ -99,7 +99,8 @@ class Cryptobot:
     def geyCryptoPayMarkup(invoice_url: str,
                            invoice_id: int,
                            amount: float,
-                           asset: str) -> InlineKeyboardMarkup:
+                           # asset: str
+                           ) -> InlineKeyboardMarkup:
         """
         Инлайн-клава на оплату и проверку пополнения
         :param invoice_url: str
