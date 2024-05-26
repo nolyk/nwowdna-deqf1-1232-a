@@ -77,6 +77,7 @@ async def search_username(msg: Message, state: FSMContext):
         )
         await state.finish()
         status = await Users.checkingUsername(username)
+        print(status)
         if status:
             user = await Users.get(username=username)
             if user.username != msg.from_user.username and user.user_id != msg.from_user.id:
