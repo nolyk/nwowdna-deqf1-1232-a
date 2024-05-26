@@ -114,7 +114,7 @@ async def crypto_confirm_handler(msg: Message, state: FSMContext):
         )
 
         await msg.answer_photo(
-            photo="https://imgur.com/ohG9xyX",
+            photo="https://telegra.ph/file/d9e386fd4c8d1cf593154.png",
             caption=f"<b>Заявка отправлена!\n\n"
                     f"Тип: Cryptobot\n"
                     f"Сумма: {amount} RUB (с учетом комиссии)\n\n"
@@ -195,49 +195,49 @@ async def with_wallet_handler(msg: Message, state: FSMContext):
     await UserWithdrawal.next()
 
 
-@vip.message_handler(state=UserWithdrawal.confirm)
-async def with_confirm_handler(msg: Message, state: FSMContext):
-    if msg.text.startswith("+"):
-
-        async with state.proxy() as data:
-            wallet = data['wallet']
-            amount = data['amount']
-
-        await Users.updateBalance(
-            user_id=msg.from_user.id,
-            amount=-float(amount)
-        )
-        await Withdrawal.writeWithdrawal(
-            user_id=msg.from_user.id,
-            wallet=wallet,
-            amount=amount
-        )
-        await bot.delete_message(
-            chat_id=msg.from_user.id,
-            message_id=msg.message_id - 1
-        )
-        await bot.delete_message(
-            chat_id=msg.from_user.id,
-            message_id=msg.message_id
-        )
-        amount = float(amount) - (float(amount) / 100 * int(config.config("com_witch")))
-        await msg.answer_photo(
-            photo="https://imgur.com/ohG9xyX",
-            caption=f"<b>Заявка отправлена!\n\n"
-                    f"Реквизиты: {wallet}\n"
-                    f"Сумма: {amount} RUB (с учетом комиссии)\n\n"
-                    f"Ожидайте уведомление об начале вывода средств</b>",
-            reply_markup=return_markup()
-        )
-        await bot.send_message(
-            chat_id=config.config("admin_group"),
-            text=f'<b>♻️ Заявка на вывод!</b>\n\n'
-                 f'<b>🧑🏻‍🔧 От:</b> @{msg.from_user.username} | {msg.from_user.id}\n\n'
-                 f'<b>🪪 Реквизиты:</b> {wallet}\n\n'
-                 f'<b>💰 Сумма:</b> {amount} RUB (с учетом комиссии)'
-        )
-    else:
-        await msg.answer(
-            text="<b>Заявка на вывод отменена!</b>"
-        )
-    await state.finish()
+# @vip.message_handler(state=UserWithdrawal.confirm)
+# async def with_confirm_handler(msg: Message, state: FSMContext):
+#     if msg.text.startswith("+"):
+#
+#         async with state.proxy() as data:
+#             wallet = data['wallet']
+#             amount = data['amount']
+#
+#         await Users.updateBalance(
+#             user_id=msg.from_user.id,
+#             amount=-float(amount)
+#         )
+#         await Withdrawal.writeWithdrawal(
+#             user_id=msg.from_user.id,
+#             wallet=wallet,
+#             amount=amount
+#         )
+#         await bot.delete_message(
+#             chat_id=msg.from_user.id,
+#             message_id=msg.message_id - 1
+#         )
+#         await bot.delete_message(
+#             chat_id=msg.from_user.id,
+#             message_id=msg.message_id
+#         )
+#         amount = float(amount) - (float(amount) / 100 * int(config.config("com_witch")))
+#         await msg.answer_photo(
+#             photo="https://imgur.com/ohG9xyX",
+#             caption=f"<b>Заявка отправлена!\n\n"
+#                     f"Реквизиты: {wallet}\n"
+#                     f"Сумма: {amount} RUB (с учетом комиссии)\n\n"
+#                     f"Ожидайте уведомление об начале вывода средств</b>",
+#             reply_markup=return_markup()
+#         )
+#         await bot.send_message(
+#             chat_id=config.config("admin_group"),
+#             text=f'<b>♻️ Заявка на вывод!</b>\n\n'
+#                  f'<b>🧑🏻‍🔧 От:</b> @{msg.from_user.username} | {msg.from_user.id}\n\n'
+#                  f'<b>🪪 Реквизиты:</b> {wallet}\n\n'
+#                  f'<b>💰 Сумма:</b> {amount} RUB (с учетом комиссии)'
+#         )
+#     else:
+#         await msg.answer(
+#             text="<b>Заявка на вывод отменена!</b>"
+#         )
+#     await state.finish()
