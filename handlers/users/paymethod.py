@@ -39,7 +39,7 @@ async def cryptbot_handler(msg: Message, state: FSMContext):
                 amount=cur_amount+cur_amount*0.03
             )
             await msg.answer_photo(
-                photo='https://imgur.com/ohG9xyX',
+                photo='https://telegra.ph/file/81baeb7d21293bc7ea1b1.png',
                 caption="<b>Для оплаты перейдите по ссылке ниже, затем нажмите '♻️ Проверить'.</b>",
                 reply_markup=Cryptobot().geyCryptoPayMarkup(
                     invoice_url=invoice_url,
@@ -55,7 +55,7 @@ async def cryptbot_handler(msg: Message, state: FSMContext):
     else:
         await msg.answer_photo(
             photo='https://imgur.com/ohG9xyX',
-            caption="<b>Нужно вводить число, а не поеботу!</b>",
+            caption="<b>Нужно вводить число</b>",
             reply_markup=return_markup()
         )
     await bot.delete_message(
@@ -134,7 +134,7 @@ async def cryptbot_handler(msg: Message, state: FSMContext):
 
 
         await msg.answer_photo(
-            photo='https://imgur.com/ohG9xyX',
+            photo='https://telegra.ph/file/81baeb7d21293bc7ea1b1.png',
             caption="<b>Для оплаты перейдите по ссылке ниже, затем нажмите '♻️ Проверить'.</b>",
             reply_markup=PayOk().geyCardMarkup(
                 invoice_id=pay_id,
@@ -145,7 +145,7 @@ async def cryptbot_handler(msg: Message, state: FSMContext):
     else:
         await msg.answer_photo(
             photo='https://imgur.com/ohG9xyX',
-            caption="<b>Нужно вводить число, а не поеботу!</b>",
+            caption="<b>Нужно вводить число</b>",
             reply_markup=return_markup()
         )
     await bot.delete_message(
