@@ -24,7 +24,8 @@ async def payments_handler(call: CallbackQuery):
 async def crypto_handler(call: CallbackQuery):
     await CryptobotPay.amount.set()
     await call.message.edit_caption(
-        caption="<b>Введите сумму пополнения в рублях:</b>"
+        caption="<b>Введите сумму пополнения в рублях:</b>",
+        reply_markup=return_markup()
     )
 
 
