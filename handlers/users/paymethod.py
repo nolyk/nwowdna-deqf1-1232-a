@@ -53,6 +53,14 @@ async def cryptbot_handler(msg: Message, state: FSMContext):
             )
 
     else:
+        await bot.delete_message(
+            chat_id=msg.from_user.id,
+            message_id=msg.message_id
+        )
+        await bot.delete_message(
+            chat_id=msg.from_user.id,
+            message_id=msg.message_id - 1
+        )
         return await msg.answer_photo(
             photo='https://telegra.ph/file/81baeb7d21293bc7ea1b1.png',
             caption="<b>Нужно вводить число</b>",
