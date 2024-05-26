@@ -6,8 +6,8 @@ from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 #     '🖥 Кабинет',
 # ]
 default_button = [
-    '💻 Меню',
-    '🪪 Профиль',
+    'МЕНЮ ГАРАНТА',
+    # '🪪 Профиль',
 ]
 
 cancel_button = [
@@ -23,9 +23,9 @@ def default_markup():
                 KeyboardButton(
                     text=default_button[0]
                 ),
-                KeyboardButton(
-                    text=default_button[1]
-                )
+                # KeyboardButton(
+                #     text=default_button[1]
+                # )
             ]
         ],
     )
