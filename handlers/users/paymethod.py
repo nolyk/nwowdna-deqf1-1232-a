@@ -23,14 +23,11 @@ async def payments_handler(call: CallbackQuery):
 @vip.callback_query_handler(text="user-сrypto-pay")
 async def crypto_handler(call: CallbackQuery):
     await CryptobotPay.amount.set()
-    # async with state.proxy() as data:
-    #     data["currency"] = call.data.split(":")[1]
     await call.message.edit_media(
         InputMediaPhoto(
             media=('https://telegra.ph/file/d9e386fd4c8d1cf593154.png'),
             caption="<b>Введите сумму пополнения в Рублях:</b>",
         ),
-        # reply_markup=Cryptobot().getCurrencyMarkup()
     )
 
 
@@ -131,6 +128,40 @@ async def card_handler(call: CallbackQuery):
     )
 
 
+@vip.message_handler(state=PayokPay.amount)
+async def cryptbot_handler(msg: Message, state: FSMContext):
+    if msg.text.isdecimal():
+        invoice, pay_id = await PayOk().createInvoice(
+            amount=msg.text
+        )
+
+
+        await msg.answer_photo(
+            photo='https://imgur.com/ohG9xyX',
+            caption="<b>Для оплаты перейдите по ссылке ниже, затем нажмите '♻️ Проверить'.</b>",
+            reply_markup=PayOk().geyCardMarkup(
+                invoice_id=pay_id,
+                invoice_url=invoice,
+                amount=msg.text
+            )
+        )
+    else:
+        await msg.answer_photo(
+            photo='https://imgur.com/ohG9xyX',
+            caption="<b>Нужно вводить число, а не поеботу!</b>",
+            reply_markup=return_markup()
+        )
+    await bot.delete_message(
+        chat_id=msg.from_user.id,
+        message_id=msg.message_id
+    )
+    await bot.delete_message(
+        chat_id=msg.from_user.id,
+        message_id=msg.message_id - 1
+    )
+    await state.finish()
+
+
 @vip.callback_query_handler(text_startswith="check-card-pay:")
 async def check_card_handler(call: CallbackQuery):
     status = await PayOk().checkTransaction(
@@ -165,35 +196,4 @@ async def check_card_handler(call: CallbackQuery):
         )
 
 
-@vip.message_handler(state=PayokPay.amount)
-async def cryptbot_handler(msg: Message, state: FSMContext):
 
-    if msg.text.isdecimal():
-        invoice, pay_id = await PayOk().createInvoice(
-            amount=msg.text
-        )
-
-        await msg.answer_photo(
-            photo='https://imgur.com/ohG9xyX',
-            caption="<b>Для оплаты перейдите по ссылке ниже, затем нажмите '♻️ Проверить'.</b>",
-            reply_markup=PayOk().geyCardMarkup(
-                invoice_id=pay_id,
-                invoice_url=invoice,
-                amount=msg.text
-            )
-        )
-    else:
-        await msg.answer_photo(
-            photo='https://imgur.com/ohG9xyX',
-            caption="<b>Нужно вводить число, а не поеботу!</b>",
-            reply_markup=return_markup()
-        )
-    await bot.delete_message(
-        chat_id=msg.from_user.id,
-        message_id=msg.message_id
-    )
-    await bot.delete_message(
-        chat_id=msg.from_user.id,
-        message_id=msg.message_id - 1
-    )
-    await state.finish()

@@ -13,15 +13,14 @@ class PayOk:
     def __init__(self):
         self._PAY_ID_ = config.config("payok_id")
         self._API_KEY_ = config.config("payok_api")
-        self._SHOP_ID_ = 5498
-        self._SECRET_KEY_: str = "369ca56f2e2c630b075fa2e532c4ec9e"
+        self._SHOP_ID_ = 12110
+        self._SECRET_KEY_: str = "1f871de722c231b8f8bd79f481bf1426"
         self._PAYOK_ = Payok(
             api_id=self._PAY_ID_,
             api_key=self._API_KEY_,
             secret_key=self._SECRET_KEY_,
             shop=self._SHOP_ID_
         )
-
         self._DESC: str = "Пополнение @CryptoGarantsBot"
         self._CURRENCY = "RUB"
 
