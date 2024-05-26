@@ -78,6 +78,13 @@ async def cryptbot_handler(msg: Message, state: FSMContext):
     await state.finish()
 
 
+@vip.callback_query_handler(text_startswith="return-menu:default:")
+async def crypto_return(call: CallbackQuery, state: FSMContext):
+    await state.finish
+    from handlers.users.callback import return_handler
+    await return_handler(call)
+
+
 # @vip.callback_query_handler(text_startswith="crypto-pay-currency:")
 # async def crypto_handler(call: CallbackQuery, state: FSMContext):
 #     await CryptobotPay.amount.set()
