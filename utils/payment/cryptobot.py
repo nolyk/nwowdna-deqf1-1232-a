@@ -48,17 +48,7 @@ class Cryptobot:
             currency_type='fiat',
             description="Пополнение CRYPTO GARANT [8%]"
         )
-        # data = await self.crypto.create_invoice(
-        #     amount=await self.getAmount(
-        #         amount=amount,
-        #         currency=asset
-        #     ),
-        #     description="Пополнение CRYPTO GARANT [8%]"
-        # )
         await self.crypto.close()
-        #
-        # rub_currency = float(self.cbrf.getCurrency()) * amount
-        print(data)
         return data.invoice_id, data.bot_invoice_url, amount
 
     async def paidInvoice(self,
