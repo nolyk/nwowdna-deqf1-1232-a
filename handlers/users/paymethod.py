@@ -53,7 +53,7 @@ async def cryptbot_handler(msg: Message, state: FSMContext):
             )
 
     else:
-        await msg.answer_photo(
+        return await msg.answer_photo(
             photo='https://telegra.ph/file/81baeb7d21293bc7ea1b1.png',
             caption="<b>Нужно вводить число</b>",
             reply_markup=return_markup()
@@ -143,7 +143,7 @@ async def cryptbot_handler(msg: Message, state: FSMContext):
             )
         )
     else:
-        await msg.answer_photo(
+        return await msg.answer_photo(
             photo='https://telegra.ph/file/81baeb7d21293bc7ea1b1.png',
             caption="<b>Нужно вводить число</b>",
             reply_markup=return_markup()
