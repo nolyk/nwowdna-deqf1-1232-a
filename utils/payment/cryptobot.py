@@ -107,9 +107,6 @@ class Cryptobot:
                     InlineKeyboardButton(
                         text='Оплатить', url=invoice_url
                     ),
-                    # InlineKeyboardButton(
-                    #     text='♻️ Проверить', callback_data=f'check-crypto-pay:{invoice_id}:{amount}:{asset}'
-                    # ),
                     InlineKeyboardButton(
                         text='♻️ Проверить', callback_data=f'check-crypto-pay:{invoice_id}:{amount}'
                     )
