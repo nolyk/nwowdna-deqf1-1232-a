@@ -120,9 +120,6 @@ def withdrawal_markup():
 			[
 				InlineKeyboardButton(text='🤖 CryptoBot', callback_data='user-withdrawal-crypto')
 			],
-			# [
-			# 	InlineKeyboardButton(text='💳 Карта/Qiwi/Yoomoney', callback_data='user-withdrawal-card'),
-			# ],
 			[
 				InlineKeyboardButton(
 					text="« Вернуться назад", callback_data='return-menu:cabinet')
@@ -138,7 +135,6 @@ def payment_markup():
 		inline_keyboard=[
 			[
 				InlineKeyboardButton(text='🤖 CryptoBot', callback_data='user-сrypto-pay'),
-				InlineKeyboardButton(text='💳 PayOK', callback_data='user-card-pay')
 			],
 			[
 				InlineKeyboardButton(text='« Вернуться назад', callback_data='return-menu:cabinet'),

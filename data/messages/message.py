@@ -2,17 +2,17 @@
 start_msg = """
 <b>Добро пожаловать в наш гарант сервис
 
-Наша цель — это создать безопасную торговую среду для продавца и покупателя в соответствии с нашими правилами</b>. <a href="https://telegra.ph/Pravila-CryptoGarantsBot-05-24">»Читать правила«</a>
+Наша цель — это создать безопасную торговую среду для продавца и покупателя в соответствии с нашими правилами</b>. <a href="https://telegra.ph/Pravila-CryGarantRobot-01-20">»Читать правила«</a>
 
-<b>📃Инструкция по боту </b><a href="https://telegra.ph/Instrukciya-po-CryptoGarantsBot-05-24">»читать«</a>
+<b>📃Инструкция по боту </b><a href="https://telegra.ph/Instrukciya-po-CryGarantRobot-01-20">»читать«</a>
 """
 
 inform_msg = """
-<b>💬 Наш торговый чат </b><a href="https://t.me/+EuWgOJ54HO1hN2Ey"><b>»вступить«</b></a>
-<b>ℹ️ Правила гарант сервиса </b><a href="https://telegra.ph/Pravila-CryptoGarantsBot-05-24"><b>»читать«</b></a><b>
-📃 Инструкция по гарант сервису </b><a href="https://telegra.ph/Instrukciya-po-CryptoGarantsBot-05-24"><b>»читать«</b></a>
+<b>💬 Наш торговый чат </b><a href="https://t.me/+6_41NmNFphYzYjU6"><b>»вступить«</b></a>
+<b>ℹ️ Правила гарант сервиса </b><a href="https://telegra.ph/Pravila-CryGarantRobot-01-20"><b>»читать«</b></a><b>
+📃 Инструкция по гарант сервису </b><a href="https://telegra.ph/Instrukciya-po-CryGarantRobot-01-20"><b>»читать«</b></a>
 
-<b>👤Поддержка: <a href="https://t.me/CG_arbitr">CG_arbitr</a></b>
+<b>👤Поддержка: <a href="https://t.me/nolyktg">nolyk</a></b>
 """
 
 blacklist_msg = """

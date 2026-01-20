@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 aiogram = ">=2.25.1,<2.26.0"
+pydantic = ">=1.10.0,<2.0.0"
 aiosqlite = ">=0.17.0,<0.18.0"
 requests = ">=2.31.0,<2.32.0"
 loguru = ">=0.7.0,<0.8.0"

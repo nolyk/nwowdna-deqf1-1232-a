@@ -4,8 +4,8 @@ from aiogram.dispatcher import FSMContext
 from loader import vip, bot
 from data import Users, DepositLogs
 from keyboards import payment_markup, return_markup
-from states import CryptobotPay, PayokPay
-from utils import Cryptobot, config, PayOk
+from states import CryptobotPay
+from utils import Cryptobot, config
 
 
 @vip.callback_query_handler(text="user-payments")
@@ -37,8 +37,9 @@ async def cryptbot_handler(msg: Message, state: FSMContext):
         cur_amount = float(msg.text)
 
         if cur_amount >= 50:
+            # БЕЗ комиссии при пополнении - пользователь пополняет ровно то, что ввел
             invoice_id, invoice_url, amount = await Cryptobot().createInvoice(
-                amount=cur_amount + cur_amount * 0.03
+                amount=cur_amount
             )
             await msg.answer_photo(
                 photo='https://telegra.ph/file/81baeb7d21293bc7ea1b1.png',
@@ -89,7 +90,7 @@ async def cryptbot_handler(msg: Message, state: FSMContext):
     await state.finish()
 
 
-@vip.callback_query_handler(state=(CryptobotPay.amount, PayokPay.amount))
+@vip.callback_query_handler(state=CryptobotPay.amount)
 async def crypto_return(call: CallbackQuery, state: FSMContext):
     if call.data == 'return-menu:default':
         await state.finish()
@@ -97,15 +98,6 @@ async def crypto_return(call: CallbackQuery, state: FSMContext):
         await return_handler(call)
 
 
-# @vip.callback_query_handler(text_startswith="crypto-pay-currency:")
-# async def crypto_handler(call: CallbackQuery, state: FSMContext):
-#     await CryptobotPay.amount.set()
-#     async with state.proxy() as data:
-#         data["currency"] = call.data.split(":")[1]
-#
-#     await call.message.edit_caption(
-#         caption="<b>Введите сумму пополнения в долларах:</b>"
-#     )
 
 
 @vip.callback_query_handler(text_startswith="check-crypto-pay:")
@@ -141,98 +133,3 @@ async def check_crypto_handler(call: CallbackQuery):
             text="💢 Пополнение не найдено!"
         )
 
-
-@vip.callback_query_handler(text="user-card-pay")
-async def card_handler(call: CallbackQuery):
-    await PayokPay.amount.set()
-    await call.message.edit_caption(
-        caption="<b>Введите сумму пополнения в рублях:</b>",
-        reply_markup=return_markup()
-    )
-
-
-@vip.message_handler(state=PayokPay.amount)
-async def cryptbot_handler(msg: Message, state: FSMContext):
-    if msg.text.isdecimal():
-
-        cur_amount = float(msg.text)
-
-        if cur_amount >= 50:
-
-            invoice, pay_id = await PayOk().createInvoice(
-                amount=cur_amount
-            )
-
-            await msg.answer_photo(
-                photo='https://telegra.ph/file/81baeb7d21293bc7ea1b1.png',
-                caption="<b>Для оплаты перейдите по ссылке ниже, затем нажмите '♻️ Проверить'.</b>",
-                reply_markup=PayOk().geyCardMarkup(
-                    invoice_id=pay_id,
-                    invoice_url=invoice,
-                    amount=cur_amount
-                )
-            )
-        else:
-            await bot.delete_message(
-                chat_id=msg.from_user.id,
-                message_id=msg.message_id
-            )
-            await bot.delete_message(
-                chat_id=msg.from_user.id,
-                message_id=msg.message_id - 1
-            )
-            return await msg.answer_photo(
-                photo='https://telegra.ph/file/81baeb7d21293bc7ea1b1.png',
-                caption="<b>Минимальная сумма пополнения 50RUB</b>",
-                reply_markup=return_markup()
-            )
-
-    else:
-        return await msg.answer_photo(
-            photo='https://telegra.ph/file/81baeb7d21293bc7ea1b1.png',
-            caption="<b>Нужно вводить число</b>",
-            reply_markup=return_markup()
-        )
-    await bot.delete_message(
-        chat_id=msg.from_user.id,
-        message_id=msg.message_id
-    )
-    await bot.delete_message(
-        chat_id=msg.from_user.id,
-        message_id=msg.message_id - 1
-    )
-    await state.finish()
-
-
-@vip.callback_query_handler(text_startswith="check-card-pay:")
-async def check_card_handler(call: CallbackQuery):
-    status = await PayOk().checkTransaction(
-        bill_id=call.data.split(":")[1].split(":")[0]
-    )
-    if status:
-        amount = call.data.split(':')[2]
-        await DepositLogs.writeDepositLogs(
-            user_id=call.from_user.id,
-            types="PayOk",
-            amount=amount
-        )
-        await bot.send_message(
-            chat_id=config.config('admin_group'),
-            text=f'<b>♻️ Пришло пополнение PayOk!</b>\n\n'
-                 f'<b>🧑🏻‍🔧 От:</b> @{call.from_user.username} | {call.from_user.id}\n\n'
-                 f'<b>💰 Сумма:</b> {call.data.split(":")[2]} RUB'
-        )
-        await call.message.edit_caption(
-            caption=f"<b>♻️ Успешное пополнение баланса!\n\n"
-                    f"🧑🏻‍🔧 Тип: PayOk\n\n"
-                    f"💰 Сумма: {amount} RUB</b>",
-            reply_markup=return_markup()
-        )
-        await Users.updateBalance(
-            user_id=call.from_user.id,
-            amount=amount
-        )
-    else:
-        await call.answer(
-            text="💢 Пополнение не найдено!"
-        )

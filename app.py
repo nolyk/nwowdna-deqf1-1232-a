@@ -13,7 +13,7 @@ from data.functions import (
 from utils import config
 
 
-async def startup(dp: vip):
+async def startup(dp):
 	conf = config.ConfigDatabase().get_config()
 	await init_orm(conf)
 
@@ -24,7 +24,7 @@ async def startup(dp: vip):
 		pass
 
 
-async def shutdown(dp: vip):
+async def shutdown(dp):
 	logger.info("Stopping bot...")
 	await dp.storage.close()
 	session = await dp.bot.get_session()
@@ -33,5 +33,5 @@ async def shutdown(dp: vip):
 
 
 if __name__ == '__main__':
-	logger.debug('Bot started | by PySnaker ')
+	logger.debug('Bot started | by @nolyktg ')
 	executor.start_polling(vip, on_startup=startup, on_shutdown=shutdown)

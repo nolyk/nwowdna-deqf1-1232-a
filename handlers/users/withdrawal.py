@@ -125,7 +125,7 @@ async def crypto_confirm_handler(msg: Message, state: FSMContext):
             chat_id=config.config("admin_group"),
             text=f'<b>♻️ Заявка на вывод!</b>\n\n'
                  f'<b>🧑🏻‍🔧 От:</b> @{msg.from_user.username} | {msg.from_user.id}\n\n'
-                 f'<b>🪪 Реквизиты:</b> Cryptobt\n\n'
+                 f'<b>🪪 Реквизиты:</b> CryptoBot\n\n'
                  f'<b>💰 Сумма:</b> {amount} RUB (с учетом комиссии)'
         )
     else:

@@ -5,10 +5,6 @@ class CryptobotPay(StatesGroup):
     amount = State()
 
 
-class PayokPay(StatesGroup):
-    amount = State()
-
-
 class UserWithdrawal(StatesGroup):
     amount = State()
     wallet = State()

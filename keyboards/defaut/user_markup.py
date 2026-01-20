@@ -6,7 +6,7 @@ from aiogram.types import KeyboardButton, ReplyKeyboardMarkup
 #     '🖥 Кабинет',
 # ]
 default_button = [
-    'МЕНЮ ГАРАНТА',
+    'Главное Меню',
     # '🪪 Профиль',
 ]
 
